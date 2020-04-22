@@ -1,6 +1,10 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-var passwordLength; 
+var passwordLength;
+var lowercaseString = "abcdefghijklmnopqrstuvwxyz";
+var uppercaseString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var numericValues = "0123456789";
+var specialCharacterValues = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
 
 // Write password to the #password input
 function writePassword() {
@@ -13,13 +17,13 @@ function writePassword() {
 
 function generatePassword(){
 
-  //Ask user to input how many characters to include and check whether it's a valid input.
-
   var passwordLengthValid = false;
   var lowercase; 
   var uppercase; 
   var numeric; 
   var specialCharacter;
+
+   //Ask user to input how many characters to include and check whether it's a valid input.
 
   while (passwordLengthValid !== true){
     
@@ -39,35 +43,23 @@ function generatePassword(){
 
   lowercase = confirm ("Do you want to include lowercase characters?");
 
-  if(lowercase){
-    // generate lower case
-    
-  }
   console.log(lowercase);
 
   uppercase = confirm ("Do you want to include uppercase characters?");
 
-  if(uppercase){
-    //generate uppercase
-    
-  }
   console.log(uppercase);
 
   numeric = confirm ("Do you want to include numeric values?");
 
-  if(numeric){
-    //generate numbers
-    
-  }
   console.log(numeric);
 
   specialCharacter = confirm ("Do you want to include special characters?");
 
-  if(specialCharacter){
-    //generate numbers
-    
-  }
   console.log(specialCharacter);
+
+  while (passwordCreator.length !== passwordLength){
+
+  }
 
 
 
