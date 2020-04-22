@@ -18,14 +18,16 @@ function writePassword() {
 function generatePassword(){
 
   var passwordLengthValid = false;
+  var dataTypeValid = false;
   var lowercase; 
   var uppercase; 
   var numeric; 
   var specialCharacter;
+  var password = "";
 
    //Ask user to input how many characters to include and check whether it's a valid input.
 
-  while (passwordLengthValid !== true){
+  while (!passwordLengthValid){
     
     passwordLength = prompt("How many characters would you like to include?");
     
@@ -41,32 +43,54 @@ function generatePassword(){
   console.log(passwordLength);
   console.log(passwordLengthValid);
 
-  lowercase = confirm ("Do you want to include lowercase characters?");
+  //Ask user what data types they want to include in password
 
-  console.log(lowercase);
+  while(!dataTypeValid){
+    lowercase = confirm ("Do you want to include lowercase characters?");
+    console.log("Lowercase: " + lowercase);
+    uppercase = confirm ("Do you want to include uppercase characters?");
+    numeric = confirm ("Do you want to include numeric values?");
+    specialCharacter = confirm ("Do you want to include special characters?");
 
-  uppercase = confirm ("Do you want to include uppercase characters?");
+    //Check if user has selected at least one data type - if not, then ask user questions above again.
 
-  console.log(uppercase);
-
-  numeric = confirm ("Do you want to include numeric values?");
-
-  console.log(numeric);
-
-  specialCharacter = confirm ("Do you want to include special characters?");
-
-  console.log(specialCharacter);
-
-  while (passwordCreator.length !== passwordLength){
-
+    if(!lowercase && !uppercase && !numeric && !specialCharacter){
+      alert ("You must choose at least one data type for your password.")
+      dataTypeValid = false;
+    }
+    else{
+      dataTypeValid = true;
+    }
   }
 
+  console.log("Lowercase: " + lowercase);
+  console.log("Uppercase: " + uppercase);
+  console.log("Numeric: " + numeric);
+  console.log("SpecialCharacter: " + specialCharacter);
 
+  // Generates password that only contains lowercase characters
 
+  if(lowercase && (!uppercase && !numeric && !specialCharacter)){
 
+    for (i = 0; i < passwordLength ; i++){
 
+      var randomNumber = Math.floor(Math.random() * (25 - 0 + 1));
+      password += lowercaseString.charAt(randomNumber);
+      }
+  }
 
+  // Generates password that only contains uppercase characters
 
+  else if(uppercase && (!lowercase && !numeric && !specialCharacter)){
+
+    for (i = 0; i < passwordLength ; i++){
+
+      var randomNumber = Math.floor(Math.random() * (25 - 0 + 1));
+      password += uppercaseString.charAt(randomNumber);
+    }
+  }
+
+  return password;
 }
 
 // Add event listener to generate button
