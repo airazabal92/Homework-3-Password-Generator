@@ -16,6 +16,10 @@ function generatePassword(){
   //Ask user to input how many characters to include and check whether it's a valid input.
 
   var passwordLengthValid = false;
+  var lowercase; 
+  var uppercase; 
+  var numeric; 
+  var specialCharacter;
 
   while (passwordLengthValid !== true){
     
@@ -25,12 +29,51 @@ function generatePassword(){
       passwordLengthValid = true;
     }
     else{
+      alert ("That is not a valid input. Please select between 8 and 128 characters.");
       passwordLengthValid = false;
     }
 }
 
   console.log(passwordLength);
   console.log(passwordLengthValid);
+
+  lowercase = confirm ("Do you want to include lowercase characters?");
+
+  if(lowercase){
+    // generate lower case
+    
+  }
+  console.log(lowercase);
+
+  uppercase = confirm ("Do you want to include uppercase characters?");
+
+  if(uppercase){
+    //generate uppercase
+    
+  }
+  console.log(uppercase);
+
+  numeric = confirm ("Do you want to include numeric values?");
+
+  if(numeric){
+    //generate numbers
+    
+  }
+  console.log(numeric);
+
+  specialCharacter = confirm ("Do you want to include special characters?");
+
+  if(specialCharacter){
+    //generate numbers
+    
+  }
+  console.log(specialCharacter);
+
+
+
+
+
+
 
 }
 
