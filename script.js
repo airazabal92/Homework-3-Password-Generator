@@ -13,7 +13,7 @@ function writePassword() {
 
 function generatePassword(){
 
-  //Ask user to input how many characters to include and check whether it's a valid input
+  //Ask user to input how many characters to include and check whether it's a valid input.
 
   var passwordLengthValid = false;
 
