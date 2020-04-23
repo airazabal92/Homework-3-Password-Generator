@@ -4,7 +4,7 @@ var passwordLength;
 var lowercaseString = "abcdefghijklmnopqrstuvwxyz";
 var uppercaseString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var numericValues = "0123456789";
-var specialCharacterValues = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
+var specialCharacterValues = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"; 
 
 // Write password to the #password input
 function writePassword() {
@@ -68,30 +68,52 @@ function generatePassword(){
   console.log("Numeric: " + numeric);
   console.log("SpecialCharacter: " + specialCharacter);
 
+
   // Generates password that only contains lowercase characters
 
   if(lowercase && (!uppercase && !numeric && !specialCharacter)){
-
-    for (i = 0; i < passwordLength ; i++){
-
-      var randomNumber = Math.floor(Math.random() * (25 - 0 + 1));
-      password += lowercaseString.charAt(randomNumber);
-      }
+    selectDataType(lowercaseString,26);
   }
 
   // Generates password that only contains uppercase characters
 
-  else if(uppercase && (!lowercase && !numeric && !specialCharacter)){
+  else if(uppercase && (!lowercase && !numeric && !specialCharacter)){ 
+    selectDataType(uppercaseString,26);
+  }
 
-    for (i = 0; i < passwordLength ; i++){
+  // Generates password that only contains numeric characters
 
-      var randomNumber = Math.floor(Math.random() * (25 - 0 + 1));
-      password += uppercaseString.charAt(randomNumber);
-    }
+  else if(numeric && (!lowercase && !uppercase && !specialCharacter)){
+    selectDataType(numericValues,10);
+  }
+
+  // Generates password that only contains special characters
+
+  else if(specialCharacter && (!lowercase && !uppercase && !numeric)){
+    selectDataType(specialCharacterValues,32);
+  }
+
+  // Generates password that contains lowercase & uppercase characters
+
+  else if((lowercase && uppercase) && (!numeric && !specialCharacter)){
+    var lowerUpperString = lowercaseString + uppercaseString;
+    selectDataType(lowerUpperString,52);
+  }
+
+
+  function selectDataType(stringType, dataLength){
+
+      for(i = 0; i < passwordLength; i++){
+        var randomNumber = Math.floor(Math.random() * dataLength);
+        password += stringType.charAt(randomNumber);
+      }
+      return password;
   }
 
   return password;
 }
+
+
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
