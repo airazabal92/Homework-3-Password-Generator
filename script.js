@@ -25,7 +25,7 @@ function generatePassword(){
   var specialCharacter;
   var password = "";
 
-   //Ask user to input how many characters to include and check whether it's a valid input.
+   //Ask user to input how many characters to include and check if it's a valid input.
 
   while (!passwordLengthValid){
     
@@ -39,9 +39,6 @@ function generatePassword(){
       passwordLengthValid = false;
     }
 }
-
-  console.log(passwordLength);
-  console.log(passwordLengthValid);
 
   //Ask user what data types they want to include in password
 
@@ -62,10 +59,6 @@ function generatePassword(){
     }
   }
 
-  console.log("Lowercase: " + lowercase);
-  console.log("Uppercase: " + uppercase);
-  console.log("Numeric: " + numeric);
-  console.log("SpecialCharacter: " + specialCharacter);
 
   /* Single character type passwords 
   -------------------------------------------------------------------*/
